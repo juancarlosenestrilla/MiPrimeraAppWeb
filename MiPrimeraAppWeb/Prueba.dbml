@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaMatricula" Class="PruebaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=WINDOWS-MJVMUAR\SQLEXPRESS;Initial Catalog=SistemaMatricula;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SistemaMatriculaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Alumno" Member="Alumnos">
+    <Type Name="Alumno">
+      <Column Name="IIDALUMNO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="APPATERNO" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="APMATERNO" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FECHANACIMIENTO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IIDSEXO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TELEFONOPADRE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TELEFONOMADRE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NUMEROHERMANOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDTIPOUSUARIO" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="TIPOUSUARIO_Alumno" Member="TIPOUSUARIO" ThisKey="IIDTIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="TIPOUSUARIO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Aula" Member="Aulas">
+    <Type Name="Aula">
+      <Column Name="IIDAULA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Curso" Member="Cursos">
+    <Type Name="Curso">
+      <Column Name="IIDCURSO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DetalleMatricula" Member="DetalleMatriculas">
+    <Type Name="DetalleMatricula">
+      <Column Name="IIDMATRICULA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IIDCURSO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NOTA1" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NOTA2" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NOTA3" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NOTA4" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PROMEDIO" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="bhabilitado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Docente" Member="Docentes">
+    <Type Name="Docente">
+      <Column Name="IIDDOCENTE" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="APPATERNO" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="APMATERNO" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DIRECCION" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="TELEFONOCELULAR" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TELEFONOFIJO" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IIDSEXO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FECHACONTRATO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FOTO" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IIDMODALIDADCONTRATO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDTIPOUSUARIO" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="TIPOUSUARIO_Docente" Member="TIPOUSUARIO" ThisKey="IIDTIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="TIPOUSUARIO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DocentePeriodo" Member="DocentePeriodos">
+    <Type Name="DocentePeriodo">
+      <Column Name="IIDDOCENTE" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IIDPERIODO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grado" Member="Grados">
+    <Type Name="Grado">
+      <Column Name="IIDGRADO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GradoSeccion" Member="GradoSeccions">
+    <Type Name="GradoSeccion">
+      <Column Name="IID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDGRADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDSECCION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GradoSeccionAula" Member="GradoSeccionAulas">
+    <Type Name="GradoSeccionAula">
+      <Column Name="IID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDPERIODO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDGRADOSECCION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDAULA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDDOCENTE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDCURSO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Matricula" Member="Matriculas">
+    <Type Name="Matricula">
+      <Column Name="IIDMATRICULA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDPERIODO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDGRADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDSECCION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDALUMNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ModalidadContrato" Member="ModalidadContratos">
+    <Type Name="ModalidadContrato">
+      <Column Name="IIDMODALIDADCONTRATO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pagina" Member="Paginas">
+    <Type Name="Pagina">
+      <Column Name="IIDPAGINA" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MENSAJE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ACCION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONTROLADOR" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Pagina_RolPagina" Member="RolPaginas" ThisKey="IIDPAGINA" OtherKey="IIDPAGINA" Type="RolPagina" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Periodo" Member="Periodos">
+    <Type Name="Periodo">
+      <Column Name="IIDPERIODO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FECHAINICIO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FECHAFIN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PeriodoGradoCurso" Member="PeriodoGradoCursos">
+    <Type Name="PeriodoGradoCurso">
+      <Column Name="IID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IIDPERIODO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDGRADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDCURSO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rol" Member="Rols">
+    <Type Name="Rol">
+      <Column Name="IIDROL" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Rol_RolPagina" Member="RolPaginas" ThisKey="IIDROL" OtherKey="IIDROL" Type="RolPagina" />
+      <Association Name="Rol_Usuario" Member="Usuarios" ThisKey="IIDROL" OtherKey="IIDROL" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RolPagina" Member="RolPaginas">
+    <Type Name="RolPagina">
+      <Column Name="IIDROL" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IIDPAGINA" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Pagina_RolPagina" Member="Pagina" ThisKey="IIDPAGINA" OtherKey="IIDPAGINA" Type="Pagina" IsForeignKey="true" />
+      <Association Name="Rol_RolPagina" Member="Rol" ThisKey="IIDROL" OtherKey="IIDROL" Type="Rol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Seccion" Member="Seccions">
+    <Type Name="Seccion">
+      <Column Name="IIDSECCION" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sexo" Member="Sexos">
+    <Type Name="Sexo">
+      <Column Name="IIDSEXO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TIPOUSUARIO" Member="TIPOUSUARIOs">
+    <Type Name="TIPOUSUARIO">
+      <Column Name="IIDTIPOUSUARIO" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TIPOUSUARIO_Alumno" Member="Alumnos" ThisKey="IIDTIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="Alumno" />
+      <Association Name="TIPOUSUARIO_Docente" Member="Docentes" ThisKey="IIDTIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="Docente" />
+      <Association Name="TIPOUSUARIO_Usuario" Member="Usuarios" ThisKey="IIDTIPOUSUARIO" OtherKey="TIPOUSUARIO" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="IIDUSUARIO" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NOMBREUSUARIO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CONTRA" Type="System.String" DbType="VarChar(64)" CanBeNull="true" />
+      <Column Name="TIPOUSUARIO" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="IID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IIDROL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BHABILITADO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Rol_Usuario" Member="Rol" ThisKey="IIDROL" OtherKey="IIDROL" Type="Rol" IsForeignKey="true" />
+      <Association Name="TIPOUSUARIO_Usuario" Member="TIPOUSUARIO1" ThisKey="TIPOUSUARIO" OtherKey="IIDTIPOUSUARIO" Type="TIPOUSUARIO" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

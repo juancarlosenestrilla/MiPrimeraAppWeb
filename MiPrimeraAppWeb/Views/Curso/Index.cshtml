@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ControllerCurso44</h2>
+<body>
+    <div id="tabla">
+
+
+    </div>
+
+    <h1>Hola</h1>
+</body>
+<script>
+    $.get("Curso/listarCurso", function (data) {
+        var contenido = " ";
+
+        contenido += "<table>"
+        contenido += "<thead>";
+
+        contenido += "<tr>";
+
+        contenido += "<td>Id Curso</td>"
+        contenido += "<td>Nombre</td>"
+        contenido += "<td>Descripción</td>"
+
+        contenido += "</tr>";
+
+        contenido += "</thead>";
+
+        contenido += "<tbody>";
+        var nfilas = data.length;
+
+        for (var i = 0; i < nfilas; i++) {
+            contenido += "<tr>";
+            contenido += "<td>" + data[i].IIDCURSO + "</td>"
+            contenido += "<td>" + data[i].NOMBRE + "</td>"
+            contenido += "<td>" + data[i].DESCRIPCION + "</td>"
+            contenido += "</tr>";
+        }
+        contenido += "</tbody>";
+        contenido += "</table>";
+
+        document.getElementById("tabla").innerHTML = contenido;
+
+    }
+    );
+
+</script>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>

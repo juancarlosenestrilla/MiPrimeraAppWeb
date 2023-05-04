@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "ComboBox";
+}
+
+<h2>ComboBox</h2>
+
+<select>
+    <option value="1">Lunes</option>
+    <option value="2">Martes</option>
+    <option value="3">Miercoles</option>
+    <option value="4">Jueves</option>
+    <option value="5">Viernes</option>
+    <option value="6">Sabado</option>
+    <option value="7">Domingo</option>
+</select>
+
+<select id="categoria">
+    <option value="1">Refrescos</option>
+    <option value="2">verduras</option>
+    <option value="3">Herramientas</option>
+    <option value="4">Refrijerios</option>
+    <option value="5">Farmacia</option>
+    <option value="6">Abarrotes</option>
+    <option value="7">Animales</option>
+</select>
+
+    <input  type="button" value="Obtener Id" id="Obtener"/>
+
+     <label id="respuesta"></label>
+
+<script>
+    var btnObtener = document.getElementById("Obtener"); 
+    btnObtener.onclick = function () {
+        var cboCategoria = document.getElementById("categoria").value;
+        
+        document.getElementById("respuesta").innerHTML = "La categoria es :" + cboCategoria;
+    }
+
+
+
+</script>
+
+
