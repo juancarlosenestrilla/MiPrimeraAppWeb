@@ -1,4 +1,14 @@
 ﻿
+$("#dtfechaNacimiento").datepicker(
+    {
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        changeYear: true
+    }
+);  //para que salga el calendario -almaneque-
+
+
+
 listar();
 function listar() {
     $.get("../Alumno/listarAlumnos", function (data) {
@@ -13,7 +23,8 @@ function listar() {
 }
 
 $.get("../Alumno/listarSexo", function (data) {
-    llenarCombo(data, document.getElementById("cboSexo"), true);
+    llenarCombo(data, document.getElementById("cboSexo"), true);  //control = a document.getElementById("cboSexo")
+    llenarCombo(data, document.getElementById("cboSexoPopu"), true);
    
 });
 
@@ -28,7 +39,8 @@ btnBuscar.onclick = function () {
     else
     $.get("../Alumno/filtrarAlumnoPorSexo/?iidsexo=" + iidsexo, function (data) {
         crearListado(["Id", "Nombre", "Apellido Paterno", "Apellido Materno", "Telefono Padre"], data);
-
+                      //lo que esta entre corchetes lo reconoce como arrayColumnas y no los fija como el encabezado de una tabla
+                      //Cambios en clase 23
     });
 
         
@@ -43,13 +55,13 @@ btnLimpiar.onclick = function () {
 
 
 
-function llenarCombo(data, control , primerElemento) {
+function llenarCombo(data, control, primerElemento) {   //control es igual a -- document.getElementById("cboSexo")--
     var contenido = " ";
     if (primerElemento == true) {
         contenido += "<option value='' >--Seleccione--</option>";
     };
     for (var i = 0; i < (data.length); i++) {
-        contenido += "<option value=' " + data[i].IID + " '>";
+        contenido += "<option value=' " + data[i].IID + " '>"; //IID esta renombrado en el controlador
 
         contenido += data[i].NOMBRE;
         contenido += "</option>";
@@ -62,6 +74,7 @@ function llenarCombo(data, control , primerElemento) {
 
 
 
+ 
 function listarAlumnos(arrayColumnas,data ) {
     var contenido = " ";
 
@@ -76,7 +89,7 @@ function listarAlumnos(arrayColumnas,data ) {
     contenido += "</tr>";
     contenido += "</thead>";
 
-    var llaves = Object.keys(data[0]);  //saca las claves del JSON
+    var llaves = Object.keys(data[0]);  //saca las claves/llaves del JSON
     //alert(llaves);
     contenido += "<tbody>";
     for ( var i = 0; i < (data.length); i++) {
@@ -87,6 +100,13 @@ function listarAlumnos(arrayColumnas,data ) {
             contenido += data[i][valorLlaves];
             contenido += "</td>";
         }
+        //botones
+        var llaveId = llaves[0];
+        contenido += "<td>";
+        contenido += "<button class='btn btn-primary' onclick='abrirModal(" + data[i][llaveId] + ")' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-edit'></i></button> "
+        contenido += "<button class='btn btn-danger' onclick='eliminar(" + data[i][llaveId] + ")' ><i class='glyphicon glyphicon-trash'></i></button>"
+        contenido += "</td>"
+        //fin-botones
                
         contenido += "</tr>";
     };
@@ -142,6 +162,8 @@ function listarAlumnos(data) {
     );
     */
 
+
+
     function crearListado(arrayColumnas, data) {
         var contenido = "";
         contenido += "<table id='tablas'  class='table' >";
@@ -185,3 +207,4 @@ function listarAlumnos(data) {
 
         );
     }
+    

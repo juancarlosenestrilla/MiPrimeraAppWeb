@@ -17,7 +17,7 @@ namespace MiPrimeraAppWeb.Controllers
         public JsonResult listarSexo()
         {
             var lista = (bd.Sexos.Where(p => p.BHABILITADO.Equals(1))
-                .Select(p => new {p.NOMBRE, IID = p.IIDSEXO }));
+                .Select(p => new {p.NOMBRE, IID = p.IIDSEXO }));  //se renombra IID y lo usamos en js
 
             return Json(lista, JsonRequestBehavior.AllowGet);
         }

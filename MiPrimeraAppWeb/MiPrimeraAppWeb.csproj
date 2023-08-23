@@ -90,8 +90,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cssPropio.css" />
     <Content Include="Content\datatables.css" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\AlumnoJS.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -101,14 +104,20 @@
       <LastGenOutput>Prueba.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ComboBox.js" />
     <Content Include="Scripts\Curso.js" />
     <Content Include="Scripts\datatables.min.js" />
+    <Content Include="Scripts\DocenteJS.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Periodo.js" />
+    <Content Include="Scripts\Seccion.js" />
     <Content Include="Scripts\sumar.js" />
     <Content Include="Scripts\tabla.js" />
     <Content Include="Web.config" />
@@ -117,6 +126,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
+    <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\PeriodoController.cs" />
     <Compile Include="Controllers\RepasoController.cs" />
     <Compile Include="Controllers\SeccionController.cs" />
@@ -125,6 +135,7 @@
     </Compile>
     <Compile Include="Models\Alumno.cs" />
     <Compile Include="Models\Curso.cs" />
+    <Compile Include="Models\Docente.cs" />
     <Compile Include="Models\Periodo.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,7 +152,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Curso\Index.cshtml" />
     <Content Include="Views\Periodo\Index.cshtml" />
-    <Content Include="Views\Seccion\Inicio.cshtml" />
+    <Content Include="Views\Seccion\Seccion.cshtml" />
     <Content Include="Views\Repaso\Ini.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Repaso\Tablas.cshtml" />
@@ -152,6 +163,7 @@
     <Content Include="Views\Periodo\Periodo.cshtml" />
     <Content Include="Views\Repaso\ComboBoxJS.cshtml" />
     <Content Include="Views\Alumno\Alumnos.cshtml" />
+    <Content Include="Views\Docente\Docente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

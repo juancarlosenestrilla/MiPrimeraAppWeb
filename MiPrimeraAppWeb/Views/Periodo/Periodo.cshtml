@@ -6,9 +6,15 @@
 <h2>Periodo</h2>
 
 <link href="~/Content/datatables.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/cssPropio.css" rel="stylesheet" />
+
 
 <label>Ingrese Nombre Periodo</label>
-<input type="text" id="txtnombre"  />
+<input type="text" id="txtnombre" />
+<br />
+
+<button type="button" onclick="abrirModal(0)" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Agregar</button>
 
 <div id="periodo">
 
@@ -17,7 +23,84 @@
 
 
 
+
+
+
+<!-- Trigger the modal with a button -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <table>
+
+                    <tr class="form-row justify-content-center">
+                        <td class="col-md-4 mb-3">
+
+                            <label for="validationDefault02">Id Periodo</label>
+
+                            <input type="text" class="borrar form-control" id="txtIdPeriodo" readonly>
+
+                        </td>
+
+                        <td class="col-md-4 mb-3">
+
+                            <label>Nombre Periodo</label>
+
+                            <input type="text" class="borrar obligatorio form-control" id="txtNombrePeriodo" placeholder="" value="" required>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="form-row justify-content-center">
+
+                        <td class="col-md-4 mb-3">
+
+                            <label for="validationDefault02">Fecha de inicio</label>
+
+                            <input type="text" class="borrar obligatorio form-control" id="datepickerInicio" placeholder="" value="" required>
+
+                        </td>
+
+                        <td class="col-md-4 mb-3">
+
+                            <label for="validationDefault02">Fecha fin</label>
+
+                            <input type="text" class="borrar obligatorio form-control" id="datepickerFin" placeholder="" value="" required>
+
+                        </td>
+
+                    </tr>
+
+
+
+
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
 <script src="~/Scripts/Periodo.js"></script>
 <script src="~/Scripts/datatables.min.js"></script>
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>

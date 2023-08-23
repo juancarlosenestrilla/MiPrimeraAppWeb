@@ -4,17 +4,28 @@
 }
 
 <link href="~/Content/datatables.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+
+
+
+
 <h2>Alumnos</h2>
+
+
 
 <label>Seleccione Sexo</label>
 <select id="cboSexo">
 
     <!-- <option value="1">Masculino</option>
-    <option value="2">Femenino</option>-->
+         <option value="2">Femenino</option>-->
 
 </select>
 <input type="button" id="btnBuscar" value="Buscar" class="btn btn-success" />
-<input type="button" id="btnLimpiar" value="Limpiar" class="btn btn-primary" /> 
+<input type="button" id="btnLimpiar" value="Limpiar" class="btn btn-primary" />
+
+<br />
+
+<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Agregar</button>
 
 <div id="tabla">
 
@@ -22,6 +33,168 @@
 
 </div>
 
+
+
+<!-- Trigger the modal with a button -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <table>
+
+
+                    <tr>
+                        <td width="40%">Id Alumno</td>
+                        <td width="60%"><input class="form-control" type="text" id="txtIdAlumno" readonly /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese Nombre</td>
+                        <td><input class="form-control" id="txtnombre" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese Apellido Paterno</td>
+                        <td><input class="form-control" id="txtapPaterno" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese Apellido Materno</td>
+                        <td><input class="form-control" id="txtapMaterno" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese sexo</td>
+                        <td><select class="form-control" id="cboSexoPopu">--Seleccione--</select></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese Fecha Nacimiento</td>
+                        <td><input class="form-control" id="dtfechaNacimineto" type="date" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese telefono padre</td>
+                        <td><input class="form-control" id="txttelefonoPadre" type="number" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese telefono Madre</td>
+                        <td><input class="form-control" id="txttelefonoMadre" type="number" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese numero hermanos</td>
+                        <td><input class="form-control" id="txtnumeroHermanos" type="number" /></td>
+                    </tr>
+
+
+
+
+
+
+                    <!--
+    <tr class="form-row justify-content-center">
+        <td class="col-md-4 mb-3">
+
+            <label for="validationDefault02">Id Alumno</label>
+
+            <input type="text" class="form-control" id="txtIdAlumno" readonly>
+
+        </td>
+
+        <td class="col-md-4 mb-3">
+
+            <label>Nombre Alumno</label>
+
+            <input type="text" class="form-control" id="txtNombreAlumno" placeholder="" value="" required>
+
+        </td>
+
+    </tr>
+
+
+    <tr class="form-row justify-content-center">
+
+        <td class="col-md-4 mb-3">
+
+            <label for="validationDefault02">Apellido Paterno</label>
+
+            <input type="text" class="form-control" id="txtapPaterno" placeholder="" value="" required>
+
+        </td>
+
+        <td class="col-md-4 mb-3">
+
+            <label for="validationDefault02">Apellido Materno</label>
+
+            <input type="text" class="form-control" id="txtapMaterno" placeholder="" value="" required>
+
+        </td>
+
+        <td class="col-md-4 mb-3">
+
+            <label for="validationDefault02">Ingrese Sexo</label>
+
+            <select id="cboSexoPopu">
+                <option value="value">--Selecione--</option>
+            </select>
+
+        </td>
+
+        <td class="col-md-4 mb-3">
+
+            <label for="validationDefault02">Ingrese Fecha Nacimiento</label>
+            <input type="date" class="form-control" id="dtfechaNacimiento" placeholder="" value="" required>
+
+
+        </td>
+
+        <td class="col-md-4 mb-3">
+
+            <label for="validationDefault02">Telefono Padre</label>
+
+            <input type="tel" class="form-control" id="txttelefonoPadre" placeholder="" value="" required>
+
+        </td>
+
+        <td class="col-md-4 mb-3">
+
+            <label for="validationDefault02">Telefono Madre</label>
+
+            <input type="tel" class="form-control" id="txttelefonoMadre" placeholder="" value="" required>
+
+        </td>
+
+        <td class="col-md-4 mb-3">
+
+            <label for="validationDefault02">Número hermanos</label>
+
+            <input type="number" class="form-control" id="txtnumeroHermanos" placeholder="" value="" required>
+
+        </td>
+
+                    </tr>
+
+                    -->
+
+
+
+
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
 <script src="~/Scripts/AlumnoJS.js"></script>
 <script src="~/Scripts/datatables.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
